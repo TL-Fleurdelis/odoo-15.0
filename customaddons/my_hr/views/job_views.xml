@@ -1,0 +1,14 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="my_hr.list_job">
+		<field name ="name">my_hr list job</field>
+		<field name="model">my.hr.job</field>
+		<field name ="arch" type="xml">
+			<tree>
+				<field name ="name"/>
+				<field name ="department_id"/>
+			</tree>
+		</field>
+		</record>
+	</data>
+</odoo>

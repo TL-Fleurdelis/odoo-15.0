@@ -1,0 +1,518 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* my_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-24 09:56+0000\n"
+"PO-Revision-Date: 2022-06-24 09:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__address
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__address
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__address
+msgid "Address"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.view_employee_kanban
+msgid "Avatar"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__birthday
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__birthday
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__birthday
+msgid "Birthday"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.view_employee_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_department_view_form
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_relative_view_form
+msgid "Contact"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_contract
+msgid "Contract Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__contract_ids
+msgid "Contract ID"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__name
+msgid "Contract's name"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_contract
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_employee_view_form
+msgid "Contracts"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__create_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__create_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__day_sign
+msgid "Day sign"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__day_left
+msgid "Days left"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.department_graph_view
+msgid "DepartmenView"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__department_id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__department_id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__department_id
+#: model_terms:ir.ui.view,arch_db:my_hr.my_employee_search_view
+msgid "Department"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_department
+msgid "Department Class"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_department_view_form
+msgid "Department's name"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_department
+msgid "Departments"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__job_decription
+msgid "Describe"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__display_name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__duration
+msgid "Duration"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__email
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__email
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__email
+msgid "Email"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__employee_id
+#: model:ir.module.category,name:my_hr.module_category_employee
+#: model:res.groups,name:my_hr.group_user
+#: model_terms:ir.ui.view,arch_db:my_hr.my_contract_search_view
+msgid "Employee"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_employee
+msgid "Employee Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_root
+msgid "Employee Demo"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__employee_id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__employee_ids
+msgid "Employee ID"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_department_view_form
+msgid "Employee List"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_employee_wizard
+msgid "Employee Wizard"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_employee_wizard
+msgid "Employee Wizard Class"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_relative_search_view
+msgid "Employee's Relatives"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_employee
+msgid "Employees"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_employee__sex__female
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_person__sex__female
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_relative__sex__female
+#: model_terms:ir.ui.view,arch_db:my_hr.my_employee_search_view
+msgid "Female"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__name
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__name
+msgid "Full name"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,help:my_hr.field_my_hr_employee__sex
+#: model:ir.model.fields,help:my_hr.field_my_hr_person__sex
+#: model:ir.model.fields,help:my_hr.field_my_hr_relative__sex
+msgid "Giới tính"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_employee_search_view
+msgid "Group by Department"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_contract_search_view
+msgid "Group by Employee"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_relative_search_view
+msgid "Group by Relative"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__id
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__id
+msgid "ID"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__img
+msgid "Img"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_contract_search_view
+msgid "Indate"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_department_view_form
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_relative_view_form
+msgid "Info"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_job
+msgid "Job Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__job_id
+msgid "Job ID"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_department_view_form
+msgid "Job List"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_job
+msgid "Jobs"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person____last_update
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__write_uid
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__write_date
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__level
+msgid "Level"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__job_ids
+msgid "List job"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_contract
+msgid "List of Contracts"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_department
+msgid "List of Departments"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_employee
+msgid "List of Employees"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_job
+msgid "List of Jobs"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_relative
+msgid "List of Relative"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.actions.act_window,name:my_hr.action_temp
+msgid "List of Temp"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_employee__sex__male
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_person__sex__male
+#: model:ir.model.fields.selection,name:my_hr.selection__my_hr_relative__sex__male
+#: model_terms:ir.ui.view,arch_db:my_hr.my_employee_search_view
+msgid "Male"
+msgstr ""
+
+#. module: my_hr
+#: model:res.groups,name:my_hr.group_manager
+msgid "Manager"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_manager
+msgid "Manager Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__manager_ids
+msgid "Manager ID"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_contract_search_view
+msgid "My Contract Search"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_employee_search_view
+msgid "My Employee Search"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_relative_search_view
+msgid "My Relative Search"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_job__name
+msgid "Name"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__name
+msgid "Name of Department"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.view_employee_wizard_form
+msgid "New Employee Wizard"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__count_employees
+msgid "Number of employees"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__count_jobs
+msgid "Number of jobs"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_contract_search_view
+msgid "Outdate"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee_wizard__person_ids
+msgid "Person"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_person
+msgid "Person Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__phone
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__phone
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__phone
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__phone
+msgid "Phone"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__phone
+msgid "Phone's number"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_relative
+msgid "Relative"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model,name:my_hr.model_my_hr_relative
+msgid "Relative Class"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__relative_ids
+msgid "Relative ID"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_relative_view_form
+msgid "Relative of"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.my_hr_employee_view_form
+msgid "Relatives"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_department__room
+msgid "Room"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_employee__sex
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_person__sex
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_relative__sex
+msgid "Sex"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_contract__status
+msgid "Status"
+msgstr ""
+
+#. module: my_hr
+#: model_terms:ir.ui.view,arch_db:my_hr.view_employee_wizard_form
+msgid "Submit"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.model.fields,field_description:my_hr.field_my_hr_manager__name
+msgid "Type of manager"
+msgstr ""
+
+#. module: my_hr
+#: model:ir.ui.menu,name:my_hr.menu_employee_wizard
+msgid "Wizard Employee"
+msgstr ""

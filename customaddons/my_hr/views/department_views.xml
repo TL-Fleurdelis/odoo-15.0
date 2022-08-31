@@ -1,0 +1,83 @@
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="my_hr.list_department">
+			<field name="name">my_hr list_department</field>
+			<field name="model">my.hr.department</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="room" />
+					<field name="phone" />
+					<field name="count_employees" />
+					<field name="count_jobs" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="my_hr_department_view_form">
+			<field name="name">my_hr.department.form</field>
+			<field name="model">my.hr.department</field>
+			<field name="arch" type="xml">
+				<form>
+					<!-- <label name= "name"/> -->
+					<sheet>
+						<h1 string="Department's name">
+							<field name="name" />
+						</h1>
+
+						<group string="Info">
+							<field name="room" />
+							<field name="count_employees" />
+							<field name="count_jobs" />
+						</group>
+						<group string="Contact">
+							<field name="phone" />
+						</group>
+						<notebook>
+							<page string="Employee List">
+								<field name="employee_ids">
+									<tree editable="bottom">
+										<field name="name" />
+										<field name="sex" />
+										<field name="phone" />
+										<field name="address" />
+										<field name="email" />
+										<field name="birthday" />
+									</tree>
+								</field>
+							</page>
+							
+							<page string="Job List">
+								<field name="job_ids">
+									<tree editable="bottom">
+										<field name="name" />
+										<field name="job_decription" />
+									</tree>
+								</field>
+							</page>
+
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- <record model="ir.ui.view" id="department_graph_view"> <field name 
+			="name">my_hr list_department</field> <field name ="model">my.hr.department</field> 
+			<field name = "arch" type ="xml"> <graph string="Department View"> <field 
+			name="department_id"/> <field name="count_employees" type="measure"/> </graph> 
+			</field> </record> -->
+		<record model="ir.ui.view" id="department_graph_view">
+			<field name="name">my_hr list_department</field>
+			<field name="model">my.hr.department</field>
+			<field name="arch" type="xml">
+				<graph string="DepartmenView">
+					<field name="name" type="rol" />
+					<field name="count_employees" type="measure" />
+					<field name="count_jobs" type="measure" />
+				</graph>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record model="ir.actions.act_window" id="exam_1.action_new">-->
+<!--            <field name="name">List of Customers have Invalid code</field>-->
+<!--            <field name="res_model">res.partner</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.actions.act_window" id="my_hr.action_employee">-->
+<!--        <field name="name">List of Employees</field>-->
+<!--        <field name="res_model">my.hr.employee</field>-->
+<!--        <field name="context">{'search_default_group_by_department':1}</field>-->
+<!--        &lt;!&ndash;<field name="context">{'search_default_group_by_department':1}</field>&ndash;&gt;-->
+<!--        <field name="view_mode">kanban,tree,form</field>-->
+<!--    </record>-->
+
+    <record model="ir.actions.act_window" id="new_customer">
+        <field name="name">List of Customers</field>
+        <field name="res_model">res.partner</field>
+<!--        <field name="context">{'search_default_special_customer_valid_filter':0}</field>-->
+        <field name="domain">[('active_discount_code','=',True)]</field>
+    </record>
+
+    <menuitem id="menu_new_customers" name="Customers who have valid code" parent="sale.sale_menu_root" action="new_customer"/>
+
+</odoo>

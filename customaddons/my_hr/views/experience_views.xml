@@ -1,0 +1,16 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="my_hr.list_contract">
+			<field name="name">my_hr list_contract</field>
+			<field name="model">my.hr.experience</field>
+			<field name="arch" type="xml">
+				<tree string ="Exp">
+					<field name="name"/>
+					<field name="company"/>
+					<field name="day_start"/>
+					<field name="day_end"/>
+				</tree>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_employee_wizard_form" model="ir.ui.view">
+		<field name="name">my.hr.employee.wirard.form</field>
+		<field name="model">my.hr.employee.wizard</field>
+		<field name="arch" type="xml">
+			<form string="New Employee Wizard">
+				<group>
+					<field name="person_ids" />
+				</group>
+				<footer>
+					<button name="make_multi_empl_to_senior" string="Submit"
+						type="object" class="btn-primary" />
+					<button string="Cancel" class="btn-secondary"
+						special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_employee_wizard" model="ir.actions.act_window">
+		<field name="name">Employee Wizard</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">my.hr.employee.wizard</field>
+		<field name="view_mode">form</field>
+		<!-- <field name="view_id" ref="crm_lead_lost_view_form"/> -->
+		<field name="target">new</field>
+	</record>
+	<menuitem name="Wizard Employee" id="menu_employee_wizard"
+		parent="my_hr.menu_employee" action="action_employee_wizard" />
+</odoo>

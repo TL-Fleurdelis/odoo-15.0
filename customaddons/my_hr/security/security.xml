@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id='module_category_employee' model='ir.module.category'>
+			<field name='name'>User authorization</field>
+			<field name='sequence'>2</field>
+		</record>
+		
+		<record id='my_hr.group_user' model='res.groups'>
+			<field name='name'>Employee</field>
+			<field name='category_id' ref='module_category_employee'/>
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		
+		<record id='my_hr.group_admin' model='res.groups'>
+			<field name='name'>Admin</field>
+			<field name='category_id' ref='module_category_employee'/>
+<!--			<field name='implied_ids' eval="[(4, ref('my_hr.group_admin'))]"/>?-->
+	<!--		<field name="users" eval />-->
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+
+<!-- 		<record model="ir.rule" id ="employee_rules">
+			<field name="name">See all employee</field>
+			<field name="model_id" ref="my.hr.admin"/>
+			
+			<field name="groups" eval="[(4, ref('my_hr.group_user'))]"></field>
+		</record> -->
+	</data>
+</odoo>

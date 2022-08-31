@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--Form View Plan Sale Order-->
+    <record id="view_plan_sale_order_form" model="ir.ui.view">
+
+        <field name="name">view.plan.sale.order.form</field>
+        <field name="model">plan.sale.order</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!--Buttons-->
+                    <button name="btn_new" type="object" string="New" class="oe_highlight"
+                            attrs="{'invisible': [('state', 'not in', ('send','approve','refuse','unknown'))]}"/>
+                    <button name="btn_send" type="object" string="Send" class="oe_highlight"
+                            attrs="{'invisible': [('state', 'not in', ('new','approve','refuse','unknown'))]}"/>
+                    <button name="btn_confirm_approve" type="object" string="Confirm Approve" class="oe_highlight  btn-success"
+                            attrs="{'invisible': [('state', 'not in', ('new','send','refuse','unknown'))]}" groups="exam_3.plan_sale_order_group_reviewer"/>
+                    <button name="btn_confirm_refuse" type="object" string="Confirm Refuse" class="oe_highlight btn-danger"
+                            attrs="{'invisible': [('state', 'not in', ('new','send','approve','unknown'))]}" groups="exam_3.plan_sale_order_group_reviewer"/>
+
+                    <!--States of Plan Sale Order-->
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <group string="Plan sale order">
+                        <field name="name" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}"/>
+                        <field name="quotation" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}"/>
+                        <field name="content" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}"/>
+                        <field name="create_uid" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}"/>
+                        <field name="can_confirm" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}"/>
+                    </group>
+
+                    <notebook>
+                        <page class="fa fa-users" string="Approver List" >
+                            <field name="order_line" attrs="{'readonly': [('state', 'in', ('send','approve','refuse'))]}">
+                                <tree editable="bottom">
+
+                                    <field name="approver"/>
+                                    <field name="approval_status"/>
+                                    <field name="state_related"/>
+
+                                    <button name="btn_approve" class="fa fa-check btn-success" string="Approve" type="object"
+                                            groups="exam_3.plan_sale_order_group_reviewer"/>
+                                    <button name="btn_refuse"  class="fa fa-times btn-danger" string="Refuse" type="object"
+                                            groups="exam_3.plan_sale_order_group_reviewer"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!--Oe Chatter-->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View Plan Sale Order-->
+    <record id="view_plan_sale_order_tree" model="ir.ui.view">
+        <field name="name">view.plan.sale.order.tree</field>
+        <field name="model">plan.sale.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="quotation"/>
+                <field name="create_uid"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View Plan Sale Order-->
+    <record id="plan_sale_order_search_view" model="ir.ui.view">
+        <field name="name">plan_sale_order_search_view</field>
+        <field name="model">plan.sale.order</field>
+        <field name="arch" type="xml">
+            <search string="Search create UID">
+                <group string="Group by Create UID">
+                    <filter string="Group by Create UID" name="group_by_create_uid"
+                        context="{'group_by':'create_uid'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

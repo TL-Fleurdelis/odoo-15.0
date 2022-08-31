@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="book4" model="library.book">
+            <field name="name">Odoo 4</field>
+             <field name="pages">400</field>
+        </record>
+        <record id="book5" model="library.book">
+            <field name="name">Odoo 5</field>
+             <field name="pages">500</field>
+        </record>
+        <record id="book6" model="library.book">
+            <field name="name">Odoo 6</field>
+             <field name="pages">600</field>
+        </record>
+        <record id="book7" model="library.book">
+            <field name="name">Odoo 7</field>
+             <field name="pages">700</field>
+        </record>
+    </data>
+</odoo>

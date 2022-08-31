@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="module_category_plan_sale_order" model="ir.module.category">
+            <field name="name">Plan Sale Order</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="plan_sale_order_group_reviewer" model="res.groups">
+            <field name="name">Group Plan Reviewer</field>
+            <field name="category_id" ref="module_category_plan_sale_order"/>
+            <field name="users" eval="[(4, ref('base.group_user'))]"/>
+<!--            <field name="implied_ids" eval="[(4, ref('group_plan_sale_order_user'))]"/>-->
+        </record>
+
+        <record id="plan_sale_order_group_planner" model="res.groups">
+            <field name="name">Group Planner Sale Order</field>
+            <field name="category_id" ref="module_category_plan_sale_order"/>
+             <field name="users" eval="[(4, ref('base.group_user'))]"/>
+<!--            <field name="users" eval="[(4, ref('base.user_root'))]"/>-->
+<!--            <field name="implied_ids" eval="[(4, ref('group_plan_sale_order_user'))]"/>-->
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <template id="cart_lines_vcode" inherit_id="website_sale.total">
+
+            <xpath expr="//div[@id='cart_total']//table/tr[2]" position="before">
+                <td class="text-right border-0">Discount code :</td>
+            </xpath>
+
+            <xpath expr="//div[@id='cart_total']//table/tr[2]" position="before">
+                <td class="text-xl-right border-0">
+                    <span t-field="website_sale_order.customer_discount_code"/>
+                </td>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

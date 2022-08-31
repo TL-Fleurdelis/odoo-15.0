@@ -1,0 +1,19 @@
+<odoo>
+	<data>
+		<record id="department_d1" model="my.hr.department">
+			<field name="name">Phòng 1 </field>
+			<field name="room">666</field>
+			<field name="phone">666</field>
+		</record>
+		<record id="department_d2" model="my.hr.department">
+			<field name="name">Phòng 2</field>
+			<field name="room">333</field>
+			<field name="phone">333</field>
+		</record>
+		<record id="department_d3" model="my.hr.department">
+			<field name="name">Phòng 3</field>
+			<field name="room">666</field>
+			<field name="phone">666</field>
+		</record>
+	</data>
+</odoo>

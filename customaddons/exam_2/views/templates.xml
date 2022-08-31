@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="cart_lines_warranty" inherit_id="website_sale.total">
+
+            <xpath expr="//div[@id='cart_total']//table/tr[4]" position="before">
+                <td class="text-right border-0">Warranty :</td>
+            </xpath>
+
+            <xpath expr="//div[@id='cart_total']//table/tr[4]" position="before">
+                <td class="text-xl-right border-0">
+<!--                    <span t-field="website_sale_order.product_warranty"/>-->
+                </td>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

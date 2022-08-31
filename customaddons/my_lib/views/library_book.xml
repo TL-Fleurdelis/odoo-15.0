@@ -1,0 +1,263 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="my_lib.action_book" model="ir.actions.act_window">
+            <field name="name">List of Book</field>
+			<field name="res_model">library.book</field>
+            <field name="view_mode">kanban,tree,form,graph,pivot</field>
+        </record>
+
+        <record id='my_lib.action_member' model='ir.actions.act_window'>
+            <field name="name">Library Member</field>
+            <field name="res_model">library.member</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="my_lib.search_book" model="ir.ui.view">
+            <field name="name">my_lib search book</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <search string="Search status of book">
+                    <field name="name"/>
+                    <field name="date_release"/>
+                    <field name="author_ids"/>
+                    <field name="short_name"/>
+                    <filter name="filter_available" string="Filter status Available" domain="[('state','=','available')]"/>
+                    <filter name="filter_lost" string="Filter status Lost" domain="[('state','=','lost')]"/>
+                    <filter name="filter_borrowed" string="Filter status Borrowed" domain="[('state','=','borrowed')]"/>
+
+                    <group expand="0" string="Group by Categories">
+                        <filter string="Categories" name="group_by_categories" context="{'group_by':'category_id'}"/>
+                    </group>
+                    <searchpanel>
+						<field name="category_id" icon="fa-user-o"/>
+					</searchpanel>
+                </search>
+            </field>
+        </record>
+        <record id="my_lib.list_book" model="ir.ui.view">
+            <field name="name">my_lib list book</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="short_name"/>
+                    <field name="date_release"/>
+                    <field name="author_ids" widget="many2many_tags"/>
+                    <field name="state"
+                           widget="badge"
+                           decoration-success="state == 'available'"
+                           decoration-muted="state == 'unavailable'"
+                           decoration-danger="state == 'lost'"
+                           decoration-primary="state == 'borrowed'"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_lib.kanban_book" model="ir.ui.view">
+            <field name="name">my_lib kanban</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <kanban>
+<!--                    <field name="id"/>-->
+                    <field name="name"/>
+                    <field name="author_ids" widget="many2many_tags"/>
+                    <field name="state"
+                           widget="badge"
+                           decoration-success="state == 'available'"
+                           decoration-muted="state == 'unavailable'"
+                           decoration-danger="state == 'lost'"
+                           decoration-primary="state == 'borrowed'"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar" t-att-src="kanban_image('library.book', 'cover', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <h3>
+                                        	<field name="name"/>
+                                      	</h3>
+                                      	<div>
+	                                     	<li>
+	                                        	<field name="date_release"/>
+	                                        </li>
+	                                        <li>
+	                                        	<field name="author_ids" widget="many2many_tags"/>
+	                                        </li>
+	                                        <li>
+                                                <field name="state"
+                                                   widget="badge"
+                                                   decoration-success="state == 'available'"
+                                                   decoration-muted="state == 'unavailable'"
+                                                   decoration-danger="state == 'lost'"
+                                                   decoration-primary="state == 'borrowed'"/>
+	                                        </li>
+                                      	</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                     <field name="id" attrs="{'invisible': True}"/>
+                </kanban>
+
+            </field>
+        </record>
+        <record id="my_lib.graph_book" model="ir.ui.view">
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <graph type="bar">
+                    <field name="name"/>
+                </graph>
+            </field>
+        </record>
+        <record id="my_lib.pivot_book" model="ir.ui.view">
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="name" type="row"></field>
+                    <field name="pages" type="col"></field>
+                </pivot>
+            </field>
+        </record>
+<!--        <record id="my_lib.cohort_book" model="ir.ui.view">-->
+<!--            <field name="model">library.book</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <cohort date_start="date_release" date_stop="date_updated" interval="day" string="Cohort"/>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record id="my_lib.list_member" model="ir.ui.view">
+            <field name="name">my_lib list book</field>
+            <field name="model">library.member</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="member_number"/>
+                    <field name="date_of_birth"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_lib.form_member" model="ir.ui.view">
+            <field name="name">my_lib form book</field>
+            <field name="model">library.member</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="log_all_library_members" string="Log Members" type="object"/>
+
+                    </header>
+
+                <sheet>
+                    <group string="Member's Info">
+                        <field name="partner_id"/>
+                        <field name="date_of_birth"/>
+                    </group>
+
+                    <group string="Card member">
+                        <field name="member_number"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="my_lib.form_book" model="ir.ui.view">
+            <field name="name">my_lib form book</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <header groups="my_lib.group_library_librarian">
+                        <button name="make_unavailable" class="btn-primary" string="Make Unavailable" type="object"/>
+                        <button name="make_available" class="btn-primary" string="Make Available" type="object"/>
+                        <button name="make_borrowed" class="btn-primary" string="Make Borrowed" type="object"/>
+                        <button name="make_lost" class="btn-primary" string="Make Lost" type="object"/>
+                        <button name="change_update_date" class="btn-primary" string="Update" type="object"/>
+                        <button name="find_book" class="btn-primary" string="Find book" type="object"/>
+                        <button name="average_book_occupation" class="btn-primary" string="Average book occupation" type="object"/>
+<!--                        <button name="books_with_multiple_authors" string="Books have Multi Authors" type="object"/>-->
+                        <button name="return_all_books" string="Return all book" type="object" class="btn-primary"/>
+                        <button name="report_missing_book" string="Report Missing Book" type="object"  />
+
+                    </header>
+                    <sheet>
+                        <header>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group>
+                            <field name="cover" widget="image" class="oe_avatar"/>
+                            <group string="Book's info">
+
+                                <field name="name"/>
+<!--                                <field name="short_name" attrs="{-->
+<!--                                'invisible': [('pages', '=', 1)],-->
+<!--                                }"/>-->
+                                <field name="short_name"/>
+                                <field name="author_ids" widget="many2many_tags"/>
+                                <field name="pages"/>
+<!--                                <field name="ref_doc_id"/>-->
+                                <field name="reader_rating"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <group string="Book's location">
+                                    <field name="category_id"/>
+                                </group>
+                                <group string="Price">
+                                    <field name="cost_price"/>
+                                    <field name="currency_id"/>
+                                    <field name="retail_price"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="is_public"/>
+                                <field name="private_notes"/>
+                                <field name="report_missing"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+
+                            <page string="Release information and updates">
+                                <group>
+                                    <field name="date_release"/>
+                                    <field name="date_updated"/>
+                                    <field name="age_days"/>
+                                </group>
+
+                            </page>
+
+                            <page string="Publisher">
+                                <group>
+                                    <field name="publisher_id"/>
+                                    <field name="publisher_city"/>
+                                </group>
+                            </page>
+
+                            <page string="Remark">
+                                <group>
+                                     <field name="notes"/>
+                                    <field name="manager_remarks"/>
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+						<field name="message_follower_ids"/>
+						<field name="activity_ids"/>
+						<field name="message_ids"/>
+					</div>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

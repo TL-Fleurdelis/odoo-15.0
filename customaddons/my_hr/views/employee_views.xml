@@ -1,0 +1,205 @@
+<odoo>
+	<data>
+	
+		<record id="my_employee_search_view" model="ir.ui.view">
+			<field name="name">my_employee_search_view</field>
+			<field name="model">my.hr.employee</field>
+			<field eval="10" name="priority"/>
+			<field name="arch" type="xml">
+				<search string="My Employee Search">
+					<field name="name"/>
+					<field name="sex"/>
+					<field name="department_id"/>
+					<filter name="male_filter" string="Male" domain="[('sex', '=',  'male')]"/>
+					<filter name="female_filter" string="Female" domain="[('sex', '=',  'female')]"/>
+					
+					<group string ="Group by Department">
+						<filter string="Job" name="group_by_job" context="{'group_by':'job_id'}"/>
+						<filter string="Department" name="group_by_department" context="{'group_by':'department_id'}"/>
+					</group>
+					<searchpanel>
+						<field name="department_id" icon="fa-user-o"/>
+					</searchpanel>
+				</search>
+			</field>
+		</record>
+		
+        <record id="view_employee_kanban" model="ir.ui.view">
+            <field name="name">my_hr.employee.kanban</field>
+            <field name="model">my.hr.employee</field>
+            <field name="arch" type="xml">
+                <kanban>
+                	<field name="id"/>
+					<field name="name"/>
+					<field name="email"/>
+					<field name="phone"/>
+					<field name="sex"/>
+					<field name="department_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar" t-att-src="kanban_image('my.hr.employee', 'img', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <h3>
+                                        	<field name="name"/>
+                                      	</h3>
+                                      	<div>
+	                                     	<li>
+	                                        	<field name="email"/>
+	                                        </li>
+	                                        <li>
+	                                        	<field name="phone"/>
+	                                        </li>
+	                                        <li>
+	                                        	<field name="job_id"/>
+	                                        </li>
+	                                        <li>
+	                                        	<field name="department_id"/>
+	                                        </li>
+                                      	</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+		<record model="ir.ui.view" id="my_hr.list_employee">
+			<field name="name">my_hr list employee</field>
+			<field name="model">my.hr.employee</field>
+			<field name="arch" type="xml">
+				
+				<tree string="Employee" expand ="1">
+					<field name="name" />
+					<field name="email" />
+					<field name="phone" />
+					<field name="sex" />
+					<field name="department_id" />
+				</tree>
+				
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="my_hr_employee_view_form">
+			<field name="name">my_hr.employee.form</field>
+			<field name="model">my.hr.employee</field>
+			<field name="arch" type="xml">
+				<form>
+
+					<header>
+					<button name="test_recordset"
+							string="Recordset" class="btn-primary"  type="object"/>
+							
+					<button name="search_employee_male"
+							string="Search male" class="btn-primary" type="object"/>
+					<button name="search_employee_female" id="btn_get_female"
+							string="Search female" class="btn-primary" type="object"/>
+<!--  					<button id="btn_get_search_test" name="name_create"
+							string="Name create" class="btn-primary" type="object"/>  -->
+					<button id="btn_temp" name="temp"
+							string="temp" class="btn-primary" type="object"/>
+					</header>
+
+					<sheet>
+						<div>
+							<field name = "img" widget = "image" class = "oe_avatar"/>
+							<h1 string="Name">
+								<field name="name"/>
+							</h1>
+						</div>
+						<group>
+						
+							<group string = "Info">
+								<field name="identity_card"/>
+								<field name="sex" />
+								<field name="birthday"/>
+								<field name="age"/>
+								<field name="department_id" />
+								<field name="job_id"/>
+							</group>
+							
+							<group string="Contact">
+								<field name="email" />
+								<field name="phone" />
+								<field name="address"/>	
+							</group>
+							
+							<group string="Education">
+								<field name="education"/>
+								<field name="school" context="{'school': 'Unknown'}"/>
+								<field name="gpa"/>
+							</group>
+
+						</group>
+						
+						<notebook>
+						
+							<page string="Contracts">
+								<field name="contract_ids">
+									<tree editable="bottom">
+										<field name="name" />
+										<field name="job_id" />
+										<field name="day_sign" />
+										<field name="duration" />
+									</tree>
+								</field>
+							</page>
+							
+							<page string="Relatives">
+								<field name="relative_ids">
+									<tree editable="bottom">
+										<field name="name"/>
+										<field name="sex"/>
+										<field name="phone"/>
+										<field name="address"/>
+										<field name="email"/>
+										<field name="birthday"/>
+										<field name="age"/>
+									</tree>
+								</field>
+							</page>
+							
+							<page string ="Experience">
+								<field name="experience_ids">
+									<tree editable="bottom">
+										<field name="name"/>
+										<field name="company"/>
+										<field name="day_start"/>
+										<field name="day_end"/>
+										<field name="describe"/>
+									</tree>
+								</field>
+							</page>
+
+						</notebook>	
+					</sheet>
+
+					<div class="oe_chatter">
+						<field name="message_follower_ids"/>
+						<field name="activity_ids"/>
+						<field name="message_ids"/>
+					</div>
+
+				</form>
+			</field>
+		</record>
+		
+			<!--Ví dụ về kế thừa view-->
+<!-- 	<record model="ir.ui.view" id="my_hr.list_temp">
+			<field name="name">my_hr list_tempotiry</field>
+			<field name="model">my.hr.employee</field>
+			<field name="inherit_id" ref="my_hr_employee_view_form" />
+			<field name="arch" type="xml">
+				<field name='department_id' position='before'>
+					<field name ='email'/>
+					<field name ='sex'/>
+				</field>
+			</field>
+		</record> -->
+	</data>
+</odoo>

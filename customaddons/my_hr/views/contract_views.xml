@@ -1,0 +1,114 @@
+<odoo>
+	<data>
+		<record id="my_contract_search_view" model="ir.ui.view">
+			<field name="name">my_contract_search_view</field>
+			<field name="model">my.hr.contract</field>
+			<field eval="10" name="priority" />
+			<field name="arch" type="xml">
+				<search string="My Contract Search">
+					<field name="code"/>
+					<field name="name" />
+					<field name="employee_id" />
+					<field name="job_id" />
+					<field name="day_sign" />
+					<field name="duration" />
+					<field name="day_left" />
+					<field name="due" />
+					
+					<filter name="in_date_filter" string="Indate"
+						domain="[('due', '=', True)]" />
+					<filter name="out_date_filter" string="Outdate"
+						domain="[('due', '=', False)]" />
+						
+					<group string="Group by Employee">
+						<filter string="Employee" name="group_by_employee"
+							context="{'group_by':'employee_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="my_hr_list_contract">
+			<field name="name">my_hr list_contract</field>
+			<field name="model">my.hr.contract</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="employee_id" />
+					<field name="job_id" />
+					<field name="department_id" />
+					<field name="currency_id" />
+					<field name="price" />
+					<field name="day_sign" />
+					<field name="duration" />
+					<field name="day_left" />
+					<field name="due" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="my_hr_contract_form">
+			<field name="name">my_hr.contract.form</field>
+			<field name="model">my.hr.contract</field>
+			<field name="arch" type="xml">
+				<form>
+				
+					<header>
+					
+						<button id="action_draft" name="action_draft"
+							string="Draft" class="btn-primary" type="object" groups="my_hr.group_admin"/>
+							
+						<button id="action_approve" name="action_approve"
+							string="Approval" class="btn-primary" type="object" groups="my_hr.group_admin"/>
+							
+						<button id="action_expire" name="action_expire"
+							string="Expire" class="btn-primary" type="object" groups="my_hr.group_admin" 
+							attrs="{'invisible': [('due','=', True)]}"/>
+							
+						<button id="action_cancel" name="action_cancel" groups="my_hr.group_admin"
+							string="Cancel" class="btn-primary" type="object"/>
+	
+						<field name="state" widget="statusbar"/>
+						
+					</header>
+					
+					<sheet>
+					
+						<div>
+							<h1 string="Contract's name">
+								<field name="name" />
+							</h1>
+						</div>
+						
+						<group>
+
+							<group string="Info">
+								<field name="code"/>
+								<field name="employee_id" />
+								<field name="department_id" />
+								<field name="job_id" />
+								<field name="day_sign" />
+								<field name="duration" />
+								<field name="day_left" />
+								<field name="due" />
+							</group>
+
+							<group string="Deal">
+								<field name="currency_id" />
+								<field name="price" />
+							</group>
+
+						</group>
+					</sheet>
+					
+					<div class="oe_chatter">
+						<field name="message_follower_ids" />
+						<field name="activity_ids" />
+						<field name="message_ids" />
+					</div>
+					
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>

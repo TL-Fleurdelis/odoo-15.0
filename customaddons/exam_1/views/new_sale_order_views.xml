@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--Show in form-->
+    <record id="view_new_sale_order_form" model="ir.ui.view">
+
+        <field name="name">view.new.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="customer_discount_code"/>
+                <field name="code_value"/>
+            </field>
+        </field>
+
+    </record>
+
+    <!--New Tree view Quotation-->
+    <record id="view_new_quotation_tree" model="ir.ui.view">
+
+        <field name="name">view.new.quotation.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+
+        <field name="arch" type="xml">
+<!--            <xpath expr="//field[@name='partner_id']" position="after">-->
+<!--                <field name="customer_discount_code"/>-->
+<!--            </xpath>-->
+            <xpath expr="//tree" position="inside">
+                <field name="customer_discount_code" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+<!--    New Tree view Sale Order-->
+    <record id="view_new_sale_order_tree" model="ir.ui.view">
+
+        <field name="name">view.new.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+
+        <field name="arch" type="xml">
+<!--            <xpath expr="//tree" position="inside">-->
+<!--                <field name="customer_discount_code" optional="show"/>-->
+<!--            </xpath>-->
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="customer_discount_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    Search special customer Quotation-->
+    <record id="view_special_customer_quotation_search" model="ir.ui.view">
+
+        <field name="name">view.special.customer.quotation.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Special customers have valid code" name="special_customer_quotation_filter"
+                        domain="[('active_discount_code','=',True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    Search special customer Sale Order-->
+    <record id="view_special_customer_sale_order_search" model="ir.ui.view">
+
+        <field name="name">view.special.customer.sale.order.search</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Special customers have valid code" name="special_customer_quotation_filter"
+                        domain="[('active_discount_code','=',True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

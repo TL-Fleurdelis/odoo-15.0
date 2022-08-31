@@ -1,0 +1,102 @@
+<odoo>
+	<data>
+		<!-- explicit list view definition -->
+		<!-- <record model="ir.ui.view" id="my_hr.list"> <field name="name">my_hr 
+			list</field> <field name="model">my_hr.my_hr</field> <field name="arch" type="xml"> 
+			<tree> <field name="name"/> <field name="value"/> <field name="value2"/> 
+			</tree> </field> </record> -->
+		<!-- actions opening views on models -->
+
+		<record model="ir.actions.act_window"
+			id="my_hr.action_employee">
+			<field name="name">List of Employees</field>
+			<field name="res_model">my.hr.employee</field>
+			<field name="context">{'search_default_group_by_department':1}</field>
+			<!--<field name="context">{'search_default_group_by_department':1}</field>-->
+			<field name="view_mode">kanban,tree,form</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="my_hr.action_job">
+			<field name="name">List of Jobs</field>
+			<field name="res_model">my.hr.job</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="my_hr.action_department">
+			<field name="name">List of Departments</field>
+			<field name="res_model">my.hr.department</field>
+			<field name="view_mode">tree,form,graph</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="my_hr.action_contract">
+			<field name="name">List of Contracts</field>
+			<field name="res_model">my.hr.contract</field>
+			<field name="context">{'search_default_group_by_employee':1}</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.actions.act_window"
+			id="my_hr.action_relative">
+			<field name="name">List of Relative</field>
+			<field name="res_model">my.hr.relative</field>
+			<!-- search_default nhận 1-0 True-False -->
+			<field name="context">{'search_default_group_by_employee':1}</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="my_hr.action_temp">
+			<field name="name">List of Temp</field>
+			<field name="res_model">my.hr.employee</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="my_hr.action_exp">
+			<field name="name">List of Temp</field>
+			<field name="res_model">my.hr.experience</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+
+		<!-- server action to the one above -->
+		<!-- <record model="ir.actions.server" id="my_hr.action_server"> <field 
+			name="name">my_hr server</field> <field name="model_id" ref="model_my_hr_my_hr"/> 
+			<field name="state">code</field> <field name="code"> action = { "type": "ir.actions.act_window", 
+			"view_mode": "tree,form", "res_model": model._name, } </field> </record> -->
+
+		<!-- Top menu item -->
+
+		<menuitem name="Employee Demo" id="menu_root" />
+
+		<menuitem name="Employees" id="menu_employee"
+			parent="my_hr.menu_root" action="my_hr.action_employee" />
+
+		<menuitem name="Jobs" id="my_hr.menu_job"
+			parent="my_hr.menu_root" action="my_hr.action_job" />
+
+		<menuitem name="Departments" id="my_hr.menu_department"
+			parent="my_hr.menu_root" action="my_hr.action_department" />
+
+		<menuitem name="Contracts" id="my_hr.menu_contract"
+			parent="my_hr.menu_root" action="my_hr.action_contract" />
+
+		<menuitem name="Relative" id="my_hr.menu_relative"
+			parent="my_hr.menu_root" action="my_hr.action_relative" />
+
+		<menuitem name="EXP" id="my_hr.menu_exp"
+			parent="my_hr.menu_root" action="my_hr.action_exp" />
+
+		<!-- menu categories -->
+
+		<!-- <menuitem name="Menu" id="my_hr.menu_1" parent="my_hr.menu_root" /> -->
+
+
+		<!-- actions -->
+
+
+
+		<!-- <menuitem name="Temp data" id="my_hr.menu_1_temp" parent="my_hr.menu_1" 
+			action="my_hr.action_temp" /> -->
+	</data>
+</odoo>

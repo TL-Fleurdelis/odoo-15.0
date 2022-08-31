@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--Show in form-->
+    <record id="view_new_product_form" model="ir.ui.view">
+
+        <field name="name">view.new.customer.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+
+        <field name="arch" type="xml">
+
+            <!--Inherit from form view in res.partner-->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="customer_discount_code" groups='exam_1.advanced_sale'/>
+                <field name="active_discount_code"/>
+                <field name="code_value"/>
+            </xpath>
+
+            <!--Check Discount Code in view form-->
+            <xpath expr="//field[@name='active_discount_code']" position="after">
+
+                <div class="alert alert-danger" role="alert" style="height: 60px; margin-bottom:0px;"
+                     attrs="{'invisible':[('active_discount_code','=',True)],'required':[('customer_discount_code','!=',None)]}">
+                     Invalid Discount Code or Doesn't have Discount Code
+                </div>
+
+                <div class="alert alert-info" role="alert" style="height: 60px; margin-bottom:0px;"
+                     attrs="{'invisible':[('active_discount_code','=',False)],'required':[('customer_discount_code','!=',None)]}">
+                     Valid Discount Code
+                </div>
+
+<!--                <div class="alert alert-warning" role="alert" style="height: 60px; margin-bottom:0px;"-->
+<!--                     attrs="{'invisible':[('active_discount_code','=',True)],'required':[('customer_discount_code','==',None)]}">-->
+<!--                     Doesn't have Discount Code-->
+<!--                </div>-->
+
+<!--                <div class="alert alert-warning" role="alert" style="height: 60px; margin-bottom:0px;"-->
+<!--                     attrs="{'invisible':['&amp;',('active_discount_code','=',True),('customer_discount_code','!=',None)]}">-->
+<!--                     Doesn't have Discount Code-->
+<!--                </div>-->
+            </xpath>
+        </field>
+    </record>
+
+    <!--Show in tree-->
+    <record id="view_new_customer_tree" model="ir.ui.view">
+
+        <field name="name">view.new.customer.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+
+        <field name="arch" type="xml">
+            <field name="email" type="xml" position="after">
+                <field name="customer_discount_code"/>
+            </field>
+        </field>
+
+    </record>
+
+<!--    Search special customer-->
+    <record id="view_special_customer_search" model="ir.ui.view">
+
+        <field name="name">view.special.customer.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Special customers have valid code" name="special_customer_filter"
+                        domain="[('active_discount_code','=',True)]"/>
+<!--                <filter string="Special customers have invalid code" name="invalid_customer_filter"-->
+<!--                        domain="['|',('active_discount_code','=',False),('customer_discount_code','!=','')]"/>-->
+                <filter string="Normal customers" name="normal_customer_filter"
+                        domain="[('active_discount_code','=',False)]"/>
+                <filter string="Customers have code" name="customers_have_code_filter"
+                        domain="[('customer_discount_code','!=',None)]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

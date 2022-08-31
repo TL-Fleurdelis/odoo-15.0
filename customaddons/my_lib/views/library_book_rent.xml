@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="my_lib.action_rent" model="ir.actions.act_window">
+            <field name="name">Book rent</field>
+            <field name="res_model">library.book.rent</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="library_book_rent_view_form" model="ir.ui.view">
+            <field name="name">Rent form</field>
+            <field name="model">library.book.rent</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                       <!--<button name="book_rent" string="Rent this book" type="object" class="btn-primary"/>-->
+                        <button name="book_lost" string="Lost the Book" states="ongoing" type="object"/>
+                        <button name="book_return" string="Returned" states="ongoing" type="object"/>
+                    </header>
+                    <group>
+                        <group string="Info">
+                            <field name="book_id"/>
+                            <field name="borrower_id"/>
+                            <field name="state"
+                                   decoration-primary="state == 'ongoing'"
+                                   decoration-success="state =='returned'"
+                                   decoration-danger="state=='lost'"
+                                   widget="badge"/>
+
+                        </group>
+                        <group string="Date">
+                            <field name="rent_date"/>
+                            <field name="return_date"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="library_book_rent_view" model="ir.ui.view">
+            <field name="name">Rent books</field>
+            <field name="model">library.book.rent</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="book_id"/>
+                    <field name="borrower_id"/>
+                    <field name="state"
+                           decoration-primary="state == 'ongoing'"
+                           decoration-success="state =='returned'"
+                           decoration-danger="state=='lost'"
+                           widget="badge"/>
+                </tree>
+            </field>
+    </record>
+    </data>
+</odoo>

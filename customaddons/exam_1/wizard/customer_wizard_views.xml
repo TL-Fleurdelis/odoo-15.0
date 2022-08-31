@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="customer_wizard_form" model="ir.ui.view">
+        <field name="name">Customer wizard form</field>
+        <field name="model">customer.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+
+                    <group>
+                        <field name="customer_id" widget="many2many_tags"/>
+                    </group>
+
+                    <group>
+                        <field name="wiz_customer_discount_code"/>
+                        <field name="wiz_active_discount_code"/>
+                        <field name="wiz_code_value"/>
+
+                        <div class="alert alert-danger" role="alert" style="height: 60px; margin-bottom:0px;"
+                         attrs="{'invisible':[('wiz_active_discount_code','=',True)],'required':[('wiz_customer_discount_code','!=',None)]}">
+                         Invalid Discount Code or Doesn't have Discount Code
+                        </div>
+
+                        <div class="alert alert-info" role="alert" style="height: 60px; margin-bottom:0px;"
+                             attrs="{'invisible':[('wiz_active_discount_code','=',False)],'required':[('wiz_customer_discount_code','!=',None)]}">
+                             Valid Discount Code
+                        </div>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button string="Select" type="object" name="set_discount_for_customers" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+<!--    <act_window id="action_wizard_add_discount" name="Wizard add discount for customer" res_model="customers.wizard" view_mode="form" target="new" />-->
+
+   	<record id="action_wizard_add_discount" model="ir.actions.act_window">
+		<field name="name">Wizard Discount</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">customer.wizard</field>
+		<field name="view_mode">form</field>
+		<!-- <field name="view_id" ref="crm_lead_lost_view_form"/> -->
+		<field name="target">new</field>
+	</record>
+
+    <menuitem id="menu_wizard_return_books" parent="sale.sale_menu_root" action="action_wizard_add_discount" sequence="20" />
+</odoo>

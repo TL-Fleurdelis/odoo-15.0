@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="warranty_wizard_form" model="ir.ui.view">
+        <field name="name">warranty.wizard.form</field>
+        <field name="model">warranty.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="wiz_date_from"/>
+                        <field name="wiz_date_to"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Select" type="object" name="set_warranty_for_product" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+<!--    <act_window id="action_wizard_add_discount" name="Wizard add discount for customer" res_model="customers.wizard" view_mode="form" target="new" />-->
+
+   	<record id="action_warranty_wizard" model="ir.actions.act_window">
+		<field name="name">Wizard Warranty</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">warranty.wizard</field>
+		<field name="view_mode">form</field>
+		<!-- <field name="view_id" ref="crm_lead_lost_view_form"/> -->
+		<field name="target">new</field>
+	</record>
+    <menuitem id="menu_warranty_wizard" parent="sale.sale_menu_root" action="action_warranty_wizard" sequence="20" />
+</odoo>

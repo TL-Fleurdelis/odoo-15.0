@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_warranty" model="ir.actions.act_window">
+        <field name="name">List of product warranty valid until today</field>
+        <field name="res_model">product.template</field>
+        <field name="domain">[('days_left','>','0')]</field>
+    </record>
+<!--    parent="sale.product_menu_catalog"-->
+    <menuitem id="menu_product_warranty" name="Product Warranty"  parent="sale.sale_menu_root" action="product_warranty"/>
+</odoo>

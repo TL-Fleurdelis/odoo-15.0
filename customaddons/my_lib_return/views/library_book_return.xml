@@ -1,0 +1,42 @@
+<odoo>
+<!--        <record id="my_lib.list_book_return" model="ir.ui.view">
+            <field name="name">my_lib list book</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="short_name"/>
+                    <field name="date_release"/>
+                    <field name="author_ids"/>
+                </tree>
+            </field>
+        </record>-->
+    <record id ="my_lib_temp" model="ir.ui.view">
+        <field name="name">my_lib form book return</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="my_lib.form_book"></field>
+        <field name="arch" type="xml">
+            <field name="manager_remarks" position="after">
+                <field name="date_return"/>
+            </field>
+        </field>
+    </record>
+    <!--
+        position nhận những thuộc tính sau:
+        + inside: thêm nội dung vào phần tử xpath
+        + replace: thay thế nội dung phần tử xpath
+        + before: thêm nội dung phía trước phần tử xpath
+        + after: thêm nội dung phía sau phần tử xpath
+        + attributes: thay đổi attributes của phần tử xpath bằng attribute trong phần thân của thẻ xpath
+    -->
+<!--    <record id="my_lib_temp1" model="ir.ui.view">
+        <field name="name">my_lib form book return</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="my_lib.form_book"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='manager_remarks']" position="after">
+                <field name="date_return"/>
+            </xpath>
+        </field>
+    </record>-->
+</odoo>
